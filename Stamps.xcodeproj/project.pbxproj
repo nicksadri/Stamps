@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		601A7C352D9F570600DEDF93 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 601A7C342D9F570200DEDF93 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		60C25E2B2D94CF6300A3E4A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		601A7C342D9F570200DEDF93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		60C25E1A2D94CF6200A3E4A0 /* Stamps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stamps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C25E2A2D94CF6300A3E4A0 /* StampsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StampsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C25E342D94CF6300A3E4A0 /* StampsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StampsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +101,7 @@
 		60C25E112D94CF6200A3E4A0 = {
 			isa = PBXGroup;
 			children = (
+				601A7C342D9F570200DEDF93 /* .gitignore */,
 				60C25E1C2D94CF6200A3E4A0 /* Stamps */,
 				60C25E2D2D94CF6300A3E4A0 /* StampsTests */,
 				60C25E372D94CF6300A3E4A0 /* StampsUITests */,
@@ -233,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601A7C352D9F570600DEDF93 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
