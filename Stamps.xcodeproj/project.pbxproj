@@ -29,9 +29,30 @@
 		60C25E342D94CF6300A3E4A0 /* StampsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StampsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		601A7C0D2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 60C25E292D94CF6300A3E4A0 /* StampsTests */;
+		};
+		601A7C0E2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 60C25E332D94CF6300A3E4A0 /* StampsUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		60C25E1C2D94CF6200A3E4A0 /* Stamps */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				601A7C0D2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsTests" target */,
+				601A7C0E2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsUITests" target */,
+			);
 			path = Stamps;
 			sourceTree = "<group>";
 		};

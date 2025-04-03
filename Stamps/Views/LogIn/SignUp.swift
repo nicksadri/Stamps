@@ -37,16 +37,13 @@ struct SignUp: View {
                     .padding(.horizontal)
                 Spacer()
                 Button() {
-                    // take to login page
+                    // TODO: take to login page
                 } label: {
                     Text("Already on Stamps?")
                 }
             }
             Spacer()
         }
-        
-        
-        
     }
 }
 
