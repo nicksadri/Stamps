@@ -36,8 +36,7 @@ struct PasswordField: View {
             Button {
                 passwordHidden.toggle()
             } label: {
-                // TODO: figure out why toggling between "eye" and "eye.slash" causes a change in password field size
-                Image(systemName: passwordHidden ? "eye" : "eye.slash")
+                Text(Image(systemName: passwordHidden ? "eye" : "eye.slash"))
                     .foregroundColor(Color(.gray))
             }
             .padding(.trailing, 30)

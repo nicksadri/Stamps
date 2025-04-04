@@ -20,7 +20,6 @@ struct SignUpPasswordView: View {
                 .padding()
             VStack {
                 PasswordField(password: $viewModel.password, passwordHidden: $passwordHidden)
-                // TODO: disable button when no password has been entered yet, or the entered password is invalid
                 Button {
                     viewModel.signUp(password: viewModel.password)
                 } label: {
