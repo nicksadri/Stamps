@@ -29,12 +29,38 @@ struct SignUpPasswordView: View {
                         .foregroundColor(.white)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 60)
-                        .background(Color.blue)
+                        .background(!viewModel.passwordIsComplexEnough() || !viewModel.passwordIsLongEnough() ? Color.gray : Color.blue)
                         .cornerRadius(10)
                 }
                 .padding()
-                // TODO: add a description of minimum requirements for password, and enforce these within Firebase
+                .disabled(!viewModel.passwordIsComplexEnough() || !viewModel.passwordIsLongEnough())
             }
+            VStack(alignment: .leading) {
+                Text("Your password must:")
+                    .bold()
+                HStack{
+                    if viewModel.passwordIsComplexEnough() {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.green)
+                    } else {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.red)
+                    }
+                    Text("Contain a letter, number, and special character")
+                }
+                HStack{
+                    if viewModel.passwordIsLongEnough() {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.green)
+                    } else {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.red)
+                    }
+                    Text("Be 8-20 characters long")
+                }
+            }
+            .font(.footnote)
+            .padding(.horizontal)
             Spacer()
         }
     }
