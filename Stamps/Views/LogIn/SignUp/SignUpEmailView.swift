@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct SignUp: View {
+struct SignUpEmailView: View {
     
     @StateObject private var viewModel = SignUpViewModel()
+    @State private var navigateToPasswordCreation = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,7 +24,7 @@ struct SignUp: View {
                 .foregroundColor(Color(.darkGray))
                 .padding(.horizontal)
                 .padding(.bottom)
-            VStack() {
+            VStack {
                 TextField("Email address", text: $viewModel.email)
                     .padding()
                     .background(Color(.systemGray6))
@@ -35,6 +36,18 @@ struct SignUp: View {
                             .stroke(Color.gray.opacity(0.2), lineWidth: 1)
                     )
                     .padding(.horizontal)
+                Button {
+                    navigateToPasswordCreation = true
+                } label: {
+                    Text("Continue")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 60)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .padding()
                 Spacer()
                 Button() {
                     // TODO: take to login page
@@ -48,5 +61,5 @@ struct SignUp: View {
 }
 
 #Preview {
-    SignUp()
+    SignUpEmailView()
 }

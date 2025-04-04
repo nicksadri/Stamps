@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		601A7C352D9F570600DEDF93 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 601A7C342D9F570200DEDF93 /* .gitignore */; };
+		601A7C3A2D9F638B00DEDF93 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 601A7C392D9F638B00DEDF93 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601A7C3A2D9F638B00DEDF93 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +141,7 @@
 			);
 			name = Stamps;
 			packageProductDependencies = (
+				601A7C392D9F638B00DEDF93 /* FirebaseAuth */,
 			);
 			productName = Stamps;
 			productReference = 60C25E1A2D94CF6200A3E4A0 /* Stamps.app */;
@@ -222,6 +225,9 @@
 			);
 			mainGroup = 60C25E112D94CF6200A3E4A0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 60C25E1B2D94CF6200A3E4A0 /* Products */;
 			projectDirPath = "";
@@ -586,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		601A7C392D9F638B00DEDF93 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60C25E122D94CF6200A3E4A0 /* Project object */;
 }

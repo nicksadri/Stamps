@@ -8,5 +8,7 @@
 import Foundation
 
 class SignUpViewModel: ObservableObject {
-    @Published var email: String = ""
+    @Published var email = ""
+    @Published var password = ""
+    @Published var passwordHidden = true
 }

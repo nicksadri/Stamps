@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignIn: View {
+struct SignInView: View {
     
     @StateObject private var viewModel = SignInViewModel()
     
@@ -42,35 +42,7 @@ struct SignIn: View {
                     )
                     .padding(.horizontal)
                     .padding(.bottom, 8)
-                ZStack(alignment: .trailing) {
-                    Group {
-                        if (viewModel.passwordHidden) {
-                            SecureField("Password", text: $viewModel.password)
-                        } else {
-                            TextField("Password", text: $viewModel.password)
-                        }
-                    }
-                    .frame(height: 22)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled(true)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                    )
-                    .padding(.horizontal)
-                    
-                    Button {
-                        viewModel.passwordHidden.toggle()
-                    } label: {
-                        // TODO: figure out why toggling between "eye" and "eye.slash" causes a change in password field size
-                        Image(systemName: viewModel.passwordHidden ? "eye" : "eye.slash")
-                            .foregroundColor(Color(.gray))
-                    }
-                    .padding(.trailing, 30)
-                }
+                PasswordField(password: $viewModel.password, passwordHidden: $viewModel.passwordHidden)
                 HStack {
                     Spacer()
                     Button {
@@ -78,11 +50,22 @@ struct SignIn: View {
                     } label: {
                         Text("Forgot your password?")
                             .font(.footnote)
-
                     }
                 }
                 .padding(.top, 8)
                 .padding(.horizontal)
+                Button {
+                    // TODO: sign in functionality
+                } label: {
+                    Text("Sign In")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 60)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .padding()
             }
             Spacer()
         }
@@ -90,5 +73,5 @@ struct SignIn: View {
 }
 
 #Preview {
-    SignIn()
+    SignInView()
 }
