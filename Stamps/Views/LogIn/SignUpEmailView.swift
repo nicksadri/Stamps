@@ -42,11 +42,10 @@ struct SignUpEmailView: View {
                         .foregroundColor(.white)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 60)
-                        .background(signUpViewModel.email.isEmpty ? Color.gray : Color.blue)
+                        .background(signUpViewModel.isValidEmail() ? Color.blue : Color.gray)
                         .cornerRadius(10)
                 }
-                // TODO: disable the button not only if the email text field is empty, but also if it is invalid in any way
-                .disabled(signUpViewModel.email.isEmpty)
+                .disabled(!signUpViewModel.isValidEmail())
                 .padding()
                 Spacer()
                 NavigationLink(destination: SignInView()) {
