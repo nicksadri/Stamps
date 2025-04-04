@@ -13,17 +13,11 @@ struct SignInView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Button {
-                // TODO: take back to sign up page
-            } label: {
-                Image(systemName: "chevron.backward")
-            }
-            .padding()
-            .font(.title)
             Text("Welcome back! 🛬")
                 .font(.largeTitle)
                 .bold()
                 .padding(.horizontal)
+                .padding(.top)
             Text("Sign in to your account to continue traveling.")
                 .font(.subheadline)
                 .foregroundColor(Color(.darkGray))
@@ -55,7 +49,7 @@ struct SignInView: View {
                 .padding(.top, 8)
                 .padding(.horizontal)
                 Button {
-                    // TODO: sign in functionality
+                    viewModel.signIn()
                 } label: {
                     Text("Sign In")
                         .font(.body)
