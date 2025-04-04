@@ -6,9 +6,22 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class SignUpViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var passwordHidden = true
+    
+    func signUp(password: String) {
+        print("email: \(self.email), password: \(password)")
+        Auth.auth().createUser(withEmail: self.email, password: password) { authResult, error in
+            // TODO: proper error handling and displaying user-friendly error to UI instead of simple print statements
+            if let error = error {
+                print("Error signing up: \(error.localizedDescription)")
+            } else {
+                print("Successful sign up!")
+            }
+        }
+    }
 }

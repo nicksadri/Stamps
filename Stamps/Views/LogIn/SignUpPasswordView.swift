@@ -9,26 +9,19 @@ import SwiftUI
 
 struct SignUpPasswordView: View {
     
-    @StateObject private var viewModel = SignUpViewModel()
+    @ObservedObject var viewModel: SignUpViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            Button {
-                // TODO: take back to sign up page
-            } label: {
-                Image(systemName: "chevron.backward")
-            }
-            .padding()
-            .font(.title)
             Text("Choose a password")
                 .font(.largeTitle)
                 .bold()
-                .padding(.horizontal)
-                .padding(.bottom)
+                .padding()
             VStack {
                 PasswordField(password: $viewModel.password, passwordHidden: $viewModel.passwordHidden)
+                // TODO: disable button when no password has been entered yet, or the entered password is invalid
                 Button {
-                    // TODO: create account
+                    viewModel.signUp(password: viewModel.password)
                 } label: {
                     Text("Continue")
                         .font(.body)
@@ -39,6 +32,7 @@ struct SignUpPasswordView: View {
                         .cornerRadius(10)
                 }
                 .padding()
+                // TODO: add a description of minimum requirements for password, and enforce these within Firebase
             }
             Spacer()
         }
@@ -46,5 +40,5 @@ struct SignUpPasswordView: View {
 }
 
 #Preview {
-    SignUpPasswordView()
+    SignUpPasswordView(viewModel: SignUpViewModel())
 }

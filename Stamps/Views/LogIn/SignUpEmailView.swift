@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SignUpEmailView: View {
     
-    @StateObject private var viewModel = SignUpViewModel()
-    @State private var navigateToPasswordCreation = false
+    @ObservedObject var viewModel: SignUpViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,17 +35,18 @@ struct SignUpEmailView: View {
                             .stroke(Color.gray.opacity(0.2), lineWidth: 1)
                     )
                     .padding(.horizontal)
-                Button {
-                    navigateToPasswordCreation = true
-                } label: {
+                // TODO: prevent user from moving to SignUpPasswordView if there is an error related to the email (i.e., the email is already in use)
+                NavigationLink(destination: SignUpPasswordView(viewModel: viewModel)) {
                     Text("Continue")
                         .font(.body)
                         .foregroundColor(.white)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 60)
-                        .background(Color.blue)
+                        .background(viewModel.email.isEmpty ? Color.gray : Color.blue)
                         .cornerRadius(10)
                 }
+                // TODO: disable the button not only if the email text field is empty, but also if it is invalid in any way
+                .disabled(viewModel.email.isEmpty)
                 .padding()
                 Spacer()
                 Button() {
@@ -61,5 +61,5 @@ struct SignUpEmailView: View {
 }
 
 #Preview {
-    SignUpEmailView()
+    SignUpEmailView(viewModel: SignUpViewModel())
 }
