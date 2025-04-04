@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @StateObject private var viewModel = SignInViewModel()
+    @StateObject var signInViewModel = SignInViewModel()
+    @StateObject private var forgotPasswordViewModel = ForgotPasswordViewModel()
+    @State private var passwordHidden = true
+    @State private var forgotPasswordShown = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +27,7 @@ struct SignInView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
             VStack() {
-                TextField("Email address", text: $viewModel.email)
+                TextField("Email address", text: $signInViewModel.email)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
@@ -36,11 +39,11 @@ struct SignInView: View {
                     )
                     .padding(.horizontal)
                     .padding(.bottom, 8)
-                PasswordField(password: $viewModel.password, passwordHidden: $viewModel.passwordHidden)
+                PasswordField(password: $signInViewModel.password, passwordHidden: $passwordHidden)
                 HStack {
                     Spacer()
                     Button {
-                        // TODO: take to reset password
+                        forgotPasswordShown = true
                     } label: {
                         Text("Forgot your password?")
                             .font(.footnote)
@@ -49,7 +52,7 @@ struct SignInView: View {
                 .padding(.top, 8)
                 .padding(.horizontal)
                 Button {
-                    viewModel.signIn()
+                    signInViewModel.signIn()
                 } label: {
                     Text("Sign In")
                         .font(.body)
@@ -63,9 +66,12 @@ struct SignInView: View {
             }
             Spacer()
         }
+        .sheet(isPresented: $forgotPasswordShown) {
+            ForgotPasswordView(viewModel: forgotPasswordViewModel, popUpIsOpen: $forgotPasswordShown)
+        }
     }
 }
 
 #Preview {
-    SignInView()
+    SignInView(signInViewModel: SignInViewModel())
 }

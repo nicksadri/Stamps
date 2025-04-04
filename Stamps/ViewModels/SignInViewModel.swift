@@ -11,7 +11,6 @@ import FirebaseAuth
 class SignInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
-    @Published var passwordHidden = true
     
     func signIn() {
         Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
@@ -22,5 +21,9 @@ class SignInViewModel: ObservableObject {
                 print("Successful sign in!")
             }
         }
+    }
+    
+    func resetPassword() {
+//        Auth.auth().sendPasswordReset(withEmail: )
     }
 }

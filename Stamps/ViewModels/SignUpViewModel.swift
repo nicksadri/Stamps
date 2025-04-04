@@ -11,7 +11,6 @@ import FirebaseAuth
 class SignUpViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
-    @Published var passwordHidden = true
     
     func signUp(password: String) {
         print("email: \(self.email), password: \(password)")

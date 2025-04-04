@@ -13,7 +13,7 @@ struct SignUpFlowView: View {
     
     var body: some View {
         NavigationStack {
-            SignUpEmailView(viewModel: viewModel)
+            SignUpEmailView(signUpViewModel: viewModel)
         }
     }
 }

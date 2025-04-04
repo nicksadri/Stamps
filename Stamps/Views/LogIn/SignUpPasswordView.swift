@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpPasswordView: View {
     
     @ObservedObject var viewModel: SignUpViewModel
+    @State private var passwordHidden = true
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +19,7 @@ struct SignUpPasswordView: View {
                 .bold()
                 .padding()
             VStack {
-                PasswordField(password: $viewModel.password, passwordHidden: $viewModel.passwordHidden)
+                PasswordField(password: $viewModel.password, passwordHidden: $passwordHidden)
                 // TODO: disable button when no password has been entered yet, or the entered password is invalid
                 Button {
                     viewModel.signUp(password: viewModel.password)
