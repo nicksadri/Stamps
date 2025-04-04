@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SignIn: View {
     
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passwordHidden = true
+    @StateObject private var viewModel = SignInViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,7 +30,7 @@ struct SignIn: View {
                 .padding(.horizontal)
                 .padding(.bottom)
             VStack() {
-                TextField("Email address", text: $email)
+                TextField("Email address", text: $viewModel.email)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
@@ -46,10 +44,10 @@ struct SignIn: View {
                     .padding(.bottom, 8)
                 ZStack(alignment: .trailing) {
                     Group {
-                        if (passwordHidden) {
-                            SecureField("Password", text: $password)
+                        if (viewModel.passwordHidden) {
+                            SecureField("Password", text: $viewModel.password)
                         } else {
-                            TextField("Password", text: $password)
+                            TextField("Password", text: $viewModel.password)
                         }
                     }
                     .frame(height: 22)
@@ -65,10 +63,10 @@ struct SignIn: View {
                     .padding(.horizontal)
                     
                     Button {
-                        passwordHidden.toggle()
+                        viewModel.passwordHidden.toggle()
                     } label: {
                         // TODO: figure out why toggling between "eye" and "eye.slash" causes a change in password field size
-                        Image(systemName: passwordHidden ? "eye" : "eye.slash")
+                        Image(systemName: viewModel.passwordHidden ? "eye" : "eye.slash")
                             .foregroundColor(Color(.gray))
                     }
                     .padding(.trailing, 30)
