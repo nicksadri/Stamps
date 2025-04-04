@@ -21,7 +21,7 @@ struct SignUpPasswordView: View {
             VStack {
                 PasswordField(password: $viewModel.password, passwordHidden: $passwordHidden)
                 Button {
-                    viewModel.signUp(password: viewModel.password)
+                    viewModel.signUp()
                 } label: {
                     Text("Continue")
                         .font(.body)
