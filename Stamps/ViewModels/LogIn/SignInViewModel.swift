@@ -22,8 +22,4 @@ class SignInViewModel: ObservableObject {
             }
         }
     }
-    
-    func resetPassword() {
-//        Auth.auth().sendPasswordReset(withEmail: )
-    }
 }

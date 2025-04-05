@@ -28,11 +28,11 @@ struct SignUpPasswordView: View {
                         .foregroundColor(.white)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 60)
-                        .background(!viewModel.passwordIsComplexEnough() || !viewModel.passwordIsLongEnough() ? Color.gray : Color.blue)
-                        .cornerRadius(10)
                 }
-                .padding()
+                .background(!viewModel.passwordIsComplexEnough() || !viewModel.passwordIsLongEnough() ? Color.gray : Color.blue)
+                .cornerRadius(10)
                 .disabled(!viewModel.passwordIsComplexEnough() || !viewModel.passwordIsLongEnough())
+                .padding()
             }
             VStack(alignment: .leading) {
                 Text("Your password must:")

@@ -10,7 +10,8 @@ import SwiftUI
 struct ForgotPasswordView: View {
     
     @StateObject var viewModel: ForgotPasswordViewModel
-    @Binding var popUpIsOpen: Bool
+    @Binding var forgotPasswordIsOpen: Bool
+    @Binding var resetPasswordPopUpIsShown: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,20 +38,24 @@ struct ForgotPasswordView: View {
                     )
                     .padding(.horizontal)
                     .padding(.bottom, 8)
+                // TODO: deactivate button if no email is entered
                 Button {
                     viewModel.resetPassword()
+                    forgotPasswordIsOpen = false
+                    // TODO: add popup that tells user email has been sent
+                    resetPasswordPopUpIsShown = true
                 } label: {
                     Text("Send reset link")
                         .font(.body)
                         .foregroundColor(.white)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 60)
-                        .background(Color.blue)
-                        .cornerRadius(10)
                 }
+                .background(Color.blue)
+                .cornerRadius(10)
                 .padding(.top)
                 Button {
-                    popUpIsOpen = false
+                    forgotPasswordIsOpen = false
                 } label: {
                     Text("Cancel")
                         .font(.body)
@@ -65,5 +70,5 @@ struct ForgotPasswordView: View {
 }
 
 #Preview {
-    ForgotPasswordView(viewModel: ForgotPasswordViewModel(), popUpIsOpen: .constant(true))
+    ForgotPasswordView(viewModel: ForgotPasswordViewModel(), forgotPasswordIsOpen: .constant(true), resetPasswordPopUpIsShown: .constant(false))
 }
