@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		601A7C352D9F570600DEDF93 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 601A7C342D9F570200DEDF93 /* .gitignore */; };
+		601A7C3A2D9F638B00DEDF93 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 601A7C392D9F638B00DEDF93 /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		60C25E2B2D94CF6300A3E4A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,14 +29,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		601A7C342D9F570200DEDF93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		60C25E1A2D94CF6200A3E4A0 /* Stamps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stamps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C25E2A2D94CF6300A3E4A0 /* StampsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StampsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C25E342D94CF6300A3E4A0 /* StampsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StampsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		601A7C0D2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 60C25E292D94CF6300A3E4A0 /* StampsTests */;
+		};
+		601A7C0E2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 60C25E332D94CF6300A3E4A0 /* StampsUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		60C25E1C2D94CF6200A3E4A0 /* Stamps */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				601A7C0D2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsTests" target */,
+				601A7C0E2D96010000DEDF93 /* Exceptions for "Stamps" folder in "StampsUITests" target */,
+			);
 			path = Stamps;
 			sourceTree = "<group>";
 		};
@@ -52,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601A7C3A2D9F638B00DEDF93 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +103,7 @@
 		60C25E112D94CF6200A3E4A0 = {
 			isa = PBXGroup;
 			children = (
+				601A7C342D9F570200DEDF93 /* .gitignore */,
 				60C25E1C2D94CF6200A3E4A0 /* Stamps */,
 				60C25E2D2D94CF6300A3E4A0 /* StampsTests */,
 				60C25E372D94CF6300A3E4A0 /* StampsUITests */,
@@ -112,6 +141,7 @@
 			);
 			name = Stamps;
 			packageProductDependencies = (
+				601A7C392D9F638B00DEDF93 /* FirebaseAuth */,
 			);
 			productName = Stamps;
 			productReference = 60C25E1A2D94CF6200A3E4A0 /* Stamps.app */;
@@ -195,6 +225,9 @@
 			);
 			mainGroup = 60C25E112D94CF6200A3E4A0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 60C25E1B2D94CF6200A3E4A0 /* Products */;
 			projectDirPath = "";
@@ -212,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601A7C352D9F570600DEDF93 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		601A7C392D9F638B00DEDF93 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 601A7C382D9F638B00DEDF93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60C25E122D94CF6200A3E4A0 /* Project object */;
 }
