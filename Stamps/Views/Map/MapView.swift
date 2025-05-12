@@ -8,8 +8,13 @@
 import SwiftUI
 import MapKit
 
+struct City: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
+
 struct MapView: View {
-    @State private var position: MapCameraPosition = .userLocation(followsHeading: false, fallback: .automatic)
     @State private var sheetPresented: Bool = false
     @State private var mapViewModel = MapViewModel(completer: .init())
     @State private var query: String = ""
@@ -18,7 +23,7 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            Map(position: $position) {
+            Map(position: $mapViewModel.position) {
                 ForEach(searchResults, id: \.self) { result in
                     Marker(item: result)
                 }
@@ -35,10 +40,10 @@ struct MapView: View {
                     selectedResult = topResult
                 }
             }
+            .ignoresSafeArea()
             Button("Search") {
                 sheetPresented.toggle()
             }
-            
         }
     }
 }
