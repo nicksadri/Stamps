@@ -20,7 +20,7 @@ struct SearchSheetView: View {
                 TextField("Search for a restaurant", text: $query)
                     .autocorrectionDisabled()
                     .onSubmit {
-                        Task {
+                        Task { 
                             searchResults = (try? await mapViewModel.search()) ?? []
                         }
                     }
